@@ -132,11 +132,14 @@
     <ClCompile Include="Day0529.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Position.cpp" />
     <ClCompile Include="Practice0521_1.cpp" />
     <ClCompile Include="Practice0521_2.cpp" />
     <ClCompile Include="Unreal10th_HealloWorld.cpp" />
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="Weekend0523.cpp" />
+    <ClCompile Include="Weekend0529_1.cpp" />
+    <ClCompile Include="Weekend0529_2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day0519.h" />
@@ -153,10 +156,13 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="MazeCommon.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Position.h" />
     <ClInclude Include="Practice0521_1.h" />
     <ClInclude Include="Practice0521_2.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="Weekend0523.h" />
+    <ClInclude Include="Weekend0529_1.h" />
+    <ClInclude Include="Weekend0529_2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

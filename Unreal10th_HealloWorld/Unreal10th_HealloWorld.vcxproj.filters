@@ -63,6 +63,15 @@
     <ClCompile Include="Day0529.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Position.cpp">
+      <Filter>Maze</Filter>
+    </ClCompile>
+    <ClCompile Include="Weekend0529_1.cpp">
+      <Filter>소스 파일\Practice</Filter>
+    </ClCompile>
+    <ClCompile Include="Weekend0529_2.cpp">
+      <Filter>소스 파일\Practice</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day0515.h">
@@ -118,6 +127,15 @@
     </ClInclude>
     <ClInclude Include="Day0529.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.h">
+      <Filter>Maze</Filter>
+    </ClInclude>
+    <ClInclude Include="Weekend0529_1.h">
+      <Filter>헤더 파일\Practice</Filter>
+    </ClInclude>
+    <ClInclude Include="Weekend0529_2.h">
+      <Filter>헤더 파일\Practice</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

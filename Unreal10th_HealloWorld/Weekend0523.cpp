@@ -6,7 +6,6 @@
 #include "Weekend0523.h"
 #include "Player.h"
 #include "Enemy.h"
-#include "Position.h"
 
 // 미로 배열
 //int Maze[MazeHeight][MazeWidth] =
@@ -27,24 +26,26 @@ MazeData Maze;
 
 void Weekend0523()
 {
-    //int Number = 0;
-    //std::cin >> Number;
-    //printf("입력받은 숫자는 %d입니다.\n", Number);
-    //printf("각 자리수의 합은 %d입니다.\n", GetSum(Number));
+    // 5번
+    Weekend0523_Dungeon();
+    int Number = 0;
+    std::cin >> Number;
+    printf("입력받은 숫자는 %d입니다.\n", Number);
+    printf("각 자리수의 합은 %d입니다.\n", GetSum(Number));
 
-    //// 2번
-    //std::string NumberString;
-    //std::cin >> NumberString;
-    //printf("입력받은 숫자는 %s입니다.\n", NumberString.c_str());
-    //int Result = GetSum(NumberString.c_str());
-    //if (Result >= 0)
-    //{
-    //	printf("각 자리수의 합은 %d입니다.\n", Result);
-    //}
-    //else
-    //{
-    //	printf("숫자가 아닙니다.\n");
-    //}
+    // 2번
+    std::string NumberString;
+    std::cin >> NumberString;
+    printf("입력받은 숫자는 %s입니다.\n", NumberString.c_str());
+    int Result = GetSum(NumberString.c_str());
+    if (Result >= 0)
+    {
+        printf("각 자리수의 합은 %d입니다.\n", Result);
+    }
+    else
+    {
+        printf("숫자가 아닙니다.\n");
+    }
 }
 
 void Weekend0523_Dungeon()
@@ -68,11 +69,11 @@ void Weekend0523_Dungeon()
     if (!IsValidMazeData(&Maze))        // 검증
     {
         return;
-    }    
+    }
 
     Player MyPlayer;
 
-    FindStart(MyPlayer.Pos.X, MyPlayer.Pos.Y);    // 시작 위치 찾기
+    FindStart(MyPlayer.Pos);    // 시작 위치 찾기
 
     if (MyPlayer.Pos.X != InvalidPosition && MyPlayer.Pos.Y != InvalidPosition)
     {
@@ -90,7 +91,7 @@ void Weekend0523_Dungeon()
             // 화면 출력
             PrintMaze(MyPlayer);
             PrintPlayerState(MyPlayer);
-            
+
             // 출구에 도달했는지 확인
             if (IsGoal(MyPlayer))
             {
@@ -164,23 +165,23 @@ void Weekend0523_Dungeon()
     printf("게임 종료\n");
 }
 
-void FindStart(int& OutX, int& OutY)
+void FindStart(Position& OutPos)
 {
     // 이중 for를 통해서 미로 전체를 순회하기
     for (unsigned int y = 0; y < Maze.Height; y++)
     {
         for (unsigned int x = 0; x < Maze.Width; x++)
         {
-            if (GetMazeData(x,y) == MazeStart)    // 플레이어 시작점을 찾았으면
+            if (GetMazeData(x, y) == MazeStart)    // 플레이어 시작점을 찾았으면
             {
-                OutX = x;   
-                OutY = y;
+                OutPos.X = x;
+                OutPos.Y = y;
                 return;     // 저장하고 함수 종료
             }
         }
     }
-    OutX = InvalidPosition; // 여기는 잘못된 곳이라고 의도를 명확히 써놓는 의미
-    OutY = InvalidPosition;
+    OutPos.X = InvalidPosition; // 여기는 잘못된 곳이라고 의도를 명확히 써놓는 의미
+    OutPos.Y = InvalidPosition;
 }
 
 void PrintMaze(Player& InPlayer)
@@ -228,27 +229,27 @@ bool IsGoal(Player& InPlayer)
     return GetMazeData(InPlayer.Pos.X, InPlayer.Pos.Y) == MazeEnd;
 }
 
-int PrintAvailableMoves(int PlayerX, int PlayerY)
+int PrintAvailableMoves(Position& InPos)
 {
     int Flags = DirNone;
 
     // w(↑) s(↓) a(←) d(→)
-    if (!IsWall(PlayerX, PlayerY - 1))
+    if (!IsWall(InPos.X, InPos.Y - 1))
     {
         printf("w(↑) ");
         Flags |= DirUp;
     }
-    if (!IsWall(PlayerX, PlayerY + 1))
+    if (!IsWall(InPos.X, InPos.Y + 1))
     {
         printf("s(↓) ");
         Flags |= DirDown;
     }
-    if (!IsWall(PlayerX - 1, PlayerY))
+    if (!IsWall(InPos.X - 1, InPos.Y))
     {
         printf("a(←) ");
         Flags |= DirLeft;
     }
-    if (!IsWall(PlayerX + 1, PlayerY))
+    if (!IsWall(InPos.X + 1, InPos.Y))
     {
         printf("d(→) ");
         Flags |= DirRight;
@@ -259,17 +260,17 @@ int PrintAvailableMoves(int PlayerX, int PlayerY)
 }
 
 bool IsWall(int X, int Y)
-{    
+{
     return (
-        X < 0 || X >= static_cast<int>(Maze.Width) 
-        || Y < 0 || Y >= static_cast<int>(Maze.Height) 
+        X < 0 || X >= static_cast<int>(Maze.Width)
+        || Y < 0 || Y >= static_cast<int>(Maze.Height)
         || GetMazeData(X, Y) == MazeWall);
 }
 
 MoveDirection GetMoveInput(Player& InPlayer)
 {
     printf("이동할 방향을 선택하세요 (w:위, s:아래, a:왼쪽, d:오른쪽):\n");
-    int AvailableFlags = PrintAvailableMoves(InPlayer.Pos.X, InPlayer.Pos.Y);
+    int AvailableFlags = PrintAvailableMoves(InPlayer.Pos);
 
     MoveDirection Result = DirNone;
     char Input = 0;
@@ -322,7 +323,7 @@ RandomIncounterType RandomIncounter()
     {
         Result = RI_Treasure;   // 0.2 ~ 0.3 사이다.
     }
-    return  Result;    
+    return  Result;
 }
 
 bool Battle(Player& InPlayer)
@@ -389,7 +390,7 @@ int GetSum(int Number)
 
 int GetSum(const char* NumberString)
 {
-    int Size = 0;    
+    int Size = 0;
     while (NumberString[Size] != '\0')
     {
         Size++;
@@ -413,14 +414,14 @@ int GetSum(const char* NumberString)
             Sum = -1;
             break;
         }
-        
+
     }
-    
+
     return Sum;
 }
 
 MazeTile GetMazeData(int X, int Y)
-{    
+{
     return (MazeTile)(Maze.Data[X + Maze.Width * Y]);
 }
 
@@ -440,7 +441,7 @@ std::string ReadFile(const std::string& Path)
     else
     {
         // 파일이 없거나 다른 이유로 열리지 않았다.
-        printf("파일을 열 수 없습니다.\n");        
+        printf("파일을 열 수 없습니다.\n");
     }
 
     //return "";  // 전통적인 방식
@@ -469,7 +470,7 @@ MazeData ParseMaze(const std::string& StringData)
     }
     // 첫 줄 데이터로 가로 세로 크기 가져오기
     unsigned int Width = std::stoi(FirstLine.substr(0, CommaPosition)); // 처음 ~ 콤마앞까지
-    unsigned int Height = std::stoi(FirstLine.substr(CommaPosition+1)); // 콤마다음 ~ 끝까지
+    unsigned int Height = std::stoi(FirstLine.substr(CommaPosition + 1)); // 콤마다음 ~ 끝까지
 
     // 동적 할당으로 배열 만들기
     int* MazeArray = new int[Width * Height];
@@ -482,7 +483,7 @@ MazeData ParseMaze(const std::string& StringData)
     {
         size_t NextComma = StringData.find(',', CurrentPosition);       // 다음 콤마 위치
         size_t NextNewLine = StringData.find('\n', CurrentPosition);    // 다음 뉴라인 위치
-        
+
         size_t TokenEndPosition = std::string::npos;
         bool IsLineEnd = false;
 
@@ -542,7 +543,6 @@ void CleanupMazeData(MazeData* InMazeData)
 bool IsValidMazeData(MazeData* InMazeData)
 {
     // sizeof(배열)/sizeof(배열첫번째) : 동적할당은 안됨
-    
+
     return (InMazeData != nullptr) && (InMazeData->Data != nullptr);
 }
-

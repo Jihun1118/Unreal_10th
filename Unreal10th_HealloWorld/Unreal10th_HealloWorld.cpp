@@ -30,5 +30,5 @@ int main()  // 코드의 시작점
 	//Day0529();
 
 	//DayCaculate();
-	CardShuffle();
+	Weekend0523_Dungeon();
 }

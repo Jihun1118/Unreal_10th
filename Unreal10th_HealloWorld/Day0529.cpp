@@ -2,8 +2,8 @@
 
 void Day0529()
 {
-	MazeEnemy E1("오크", 1);
-	MazeEnemy E2("슬라임", 2);
+	MazeEnemy E1;
+	MazeEnemy E2;
 
 	PrintEnemyInfo(E1);
 	PrintEnemyInfo(E2);

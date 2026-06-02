@@ -1,30 +1,51 @@
 #pragma once
 #include <string>
 #include "Utils.h"
+#include "Actor.h"
 
-struct MazeEnemy
+class MazeEnemy : public Actor
 {
-	std::string Name = "고블린";
-	int Health = 20;
-	int AttackPowerMin = 5;
-	int AttackPowerMax = 10;
+public:
+	MazeEnemy()
+		: Actor(20, 20, 5, 15),
+			Name("몬스터"),
+			Reward(100)
+	{
+	}
+	MazeEnemy(
+		int InHealth,
+		int InMaxHealth,
+		int InAttackPowerMin,
+		int InAttackPowerMax,
+		const std::string& InName,
+		int InReward
+	)
+		: Actor(InHealth, InMaxHealth, InAttackPowerMin, InAttackPowerMax),
+		Name(InName),
+		Reward(InReward)
+	{
+	}
+
+
+
+	std::string Name = "몬스터";
 	int Reward = 100;
 
-	MazeEnemy()
-	{
-		Health = GetRandomRange(15, 25);
-		AttackPowerMin = GetRandomRange(3, 7);
-		AttackPowerMax = GetRandomRange(8, 12);
-		Reward = GetRandomRange(80, 120);
-	}
-	MazeEnemy(const std::string& InName, int InLevel) 
-		: Name(InName)
-	{ 
-		Health *= InLevel;
-		AttackPowerMin *= InLevel;
-		AttackPowerMax *= InLevel;
-		Reward *= InLevel;
-	}
+	//MazeEnemy()
+	//{
+	//	Health = GetRandomRange(15, 25);
+	//	AttackPowerMin = GetRandomRange(3, 7);
+	//	AttackPowerMax = GetRandomRange(8, 12);
+	//	Reward = GetRandomRange(80, 120);
+	//}
+	//MazeEnemy(const std::string& InName, int InLevel) 
+	//	: Name(InName)
+	//{ 
+	//	Health *= InLevel;
+	//	AttackPowerMin *= InLevel;
+	//	AttackPowerMax *= InLevel;
+	//	Reward *= InLevel;
+	//}
 
 	// +연산자를 오버로딩 한다.
 	// 결과는 MazeEnemy타입으로 나온다.

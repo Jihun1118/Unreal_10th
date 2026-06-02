@@ -1,7 +1,10 @@
 #pragma once
 #include "MazeCommon.h"
 #include "Player.h"
-
+#include "Enemy.h"
+#include "Orc.h"
+#include "Slime.h"
+#include "Goblin.h"
 enum MazeTile
 {
 	MazePath = 0,
@@ -185,3 +188,7 @@ void CleanupMazeData(MazeData* InMazeData);
 /// <param name="InMazeData">확인할 데이터</param>
 /// <returns>true면 사용가능, false면 사용 불가능</returns>
 bool IsValidMazeData(MazeData* InMazeData);
+
+MazeEnemy* CreateRandomEnemy();
+
+

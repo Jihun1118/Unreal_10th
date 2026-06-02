@@ -22,7 +22,7 @@ void Animal::Eat()
 void Animal::Sleep()
 {
 	printf("쿨쿨잡니다.\n에너지가 완전 회복합니다.\n나이가 1살 증가합니다.\n");
-	Energy = MaxEnegy;
+	Energy = MaxEnergy;
 	Age++;
 }
 
@@ -31,7 +31,7 @@ void Animal::ShowInfo()
 	printf("-------------------------------------\n");
 	printf("이름\t: %s\n", Name.c_str());
 	printf("나이\t: %d살\n", Age);
-	printf("에너지\t: %.0f / %.0f\n", Energy, MaxEnegy);
+	printf("에너지\t: %.0f / %.0f\n", Energy, MaxEnergy);
 	printf("-------------------------------------\n");
 
 }

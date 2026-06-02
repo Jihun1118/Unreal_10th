@@ -6,6 +6,10 @@
 #include "Weekend0523.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Actor.h"
+#include "Orc.h"
+#include "Slime.h"
+#include "Goblin.h"
 
 // 미로 배열
 //int Maze[MazeHeight][MazeWidth] =
@@ -23,6 +27,7 @@
 //};
 //int* Maze = nullptr;
 MazeData Maze;
+Player MazePlayer;
 
 void Weekend0523()
 {
@@ -330,26 +335,30 @@ bool Battle(Player& InPlayer)
 {
     const float CriticalRate = 0.1f;
 
-    MazeEnemy Goblin;
-    printf("[%s]이 나타났다!! 전투 시작!\n", Goblin.Name.c_str());
+    MazeEnemy* RandomMazeEnemy = CreateRandomEnemy();
+
+    printf("[%s]이 나타났다!! 전투 시작!\n", RandomMazeEnemy->Name.c_str());
     int Turn = 1;
-    while (InPlayer.Health > 0 && Goblin.Health > 0)
+    while (InPlayer.Health > 0 && RandomMazeEnemy->Health > 0)
     {
         // 전투 턴 진행
         printf("------------턴 %d------------\n", Turn);
-        printf("| Player : %3d  Enemy : %3d |\n", InPlayer.Health, Goblin.Health);
+        printf("| Player : %3d  Enemy : %3d |\n", InPlayer.Health, RandomMazeEnemy->Health);
         printf("-----------------------------\n");
-        int Damage = GetRandomRange(InPlayer.AttackPowerMin, InPlayer.AttackPowerMax);
+        //int Damage = GetRandomRange(InPlayer.AttackPowerMin, InPlayer.AttackPowerMax);
+        int Damage = InPlayer.ApplyDamage();
+        RandomMazeEnemy->TakeDamage(Damage);
         printf("당신의 공격 : %d의 데미지를 주었다.\n", Damage);
-        Goblin.Health -= Damage;
-        if (Goblin.Health > 0)
+        if (RandomMazeEnemy->Health > 0)
         {
-            Damage = GetRandomRange(Goblin.AttackPowerMin, Goblin.AttackPowerMax);
+            Damage = RandomMazeEnemy->ApplyDamage();
             printf("적의 공격 : %d의 데미지를 받았다.\n", Damage);
-            InPlayer.Health -= Damage;
+            InPlayer.TakeDamage(Damage);
         }
     }
 
+    delete RandomMazeEnemy;
+    RandomMazeEnemy = nullptr;
     return InPlayer.Health > 0;    // 플레이어의 체력이 남은채 while이 끝났으면 플레이어가 이긴것
 }
 
@@ -545,4 +554,24 @@ bool IsValidMazeData(MazeData* InMazeData)
     // sizeof(배열)/sizeof(배열첫번째) : 동적할당은 안됨
 
     return (InMazeData != nullptr) && (InMazeData->Data != nullptr);
+}
+
+
+
+MazeEnemy* CreateRandomEnemy()
+{
+    int EnemyType = GetRandomRange(0, 2);
+
+    if (EnemyType == 0)
+    {
+        return new Orc();
+    }
+    else if (EnemyType == 1)
+    {
+        return new Slime();
+    }
+    else
+    {
+        return new RandomMazeEnemy();
+    }
 }

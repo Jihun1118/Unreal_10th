@@ -184,6 +184,8 @@ public:
 	virtual void MakeSound() override;	// 가상함수를 덮어쓰기 하겠다.
 };
 
+
+
 // 간단 실습
 // Move함수를 가상함수로 만들어 처리하기
 //	- 고래는 수영

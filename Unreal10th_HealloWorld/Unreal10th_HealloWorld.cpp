@@ -19,6 +19,9 @@
 #include "Day0528.h"
 #include "Weekend0529_1.h"
 #include "Weekend0529_2.h"
+#include "LinkedList.h"
+#include "DArray.h"
+#include "Day0605.h"
 
 using namespace std;
 
@@ -35,5 +38,37 @@ int main()  // 코드의 시작점
 	//Day0529();
 
 	//DayCaculate();
-	Weekend0523_Dungeon();
+	//eekend0523_Dungeon();
+	//Day0605 Day0605;
+
+	//Day0605.TestList();
+
+	DArray DA;
+	DA.PushBack(10);
+	DA.Print();
+	DA.PushBack(20);
+	DA.Print();
+	DA.PushBack(30);
+	DA.Print();
+	DA.PushBack(40);
+	DA.Print();
+	DA.PushBack(50);
+	DA.Print();
+
+	/*DA.Reserve(3);
+	DA.PushBack(10);
+	DA.Print();
+	DA.PushBack(20);
+	DA.Print();
+	DA.PushBack(30);
+	DA.Print();
+	DA.PushBack(40);
+	DA.Print();
+	DA.PushBack(50);
+	DA.Print();
+	DA.PopBack();
+	DA.Print();
+	DA.PopBack();
+	DA.Print();*/
+	
 }

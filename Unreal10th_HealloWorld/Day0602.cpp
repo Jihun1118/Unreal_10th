@@ -22,7 +22,7 @@ void Animal::Eat()
 void Animal::Sleep()
 {
 	printf("쿨쿨잡니다.\n에너지가 완전 회복합니다.\n나이가 1살 증가합니다.\n");
-	Energy = MaxEnergy;
+	Energy = MaxEnegy;
 	Age++;
 }
 
@@ -31,7 +31,7 @@ void Animal::ShowInfo()
 	printf("-------------------------------------\n");
 	printf("이름\t: %s\n", Name.c_str());
 	printf("나이\t: %d살\n", Age);
-	printf("에너지\t: %.0f / %.0f\n", Energy, MaxEnergy);
+	printf("에너지\t: %.0f / %.0f\n", Energy, MaxEnegy);
 	printf("-------------------------------------\n");
 
 }
@@ -39,6 +39,20 @@ void Animal::ShowInfo()
 void Tiger::MakeSound()
 {
 	printf("호랑이 : 어흥하고 소리를 냅니다.\n");
+}
+
+void Tiger::Attack(ICanBattle* InTarget)
+{
+	// 호랑이가 InTarget에게 10의 데미지를 주는 공격을 하기
+	if (InTarget)
+	{
+		InTarget->Defence(10);
+	}
+}
+
+void Tiger::Defence(int InDamage)
+{
+	// 호랑이가 InDamage만큼 피해를 입었습니다.
 }
 
 void Eagle::MakeSound()

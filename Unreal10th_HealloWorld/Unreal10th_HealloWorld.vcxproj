@@ -102,7 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>Default</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,6 +125,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="BinarySearchTree.cpp" />
+    <ClCompile Include="Calculator.cpp" />
+    <ClCompile Include="CircularQueue.cpp" />
     <ClCompile Include="DArray.cpp" />
     <ClCompile Include="Day0521_2.cpp" />
     <ClCompile Include="Day0522.cpp" />
@@ -135,7 +138,10 @@
     <ClCompile Include="Day0602.cpp" />
     <ClCompile Include="Day0604.cpp" />
     <ClCompile Include="Day0605.cpp" />
+    <ClCompile Include="Day0609.cpp" />
+    <ClCompile Include="Day0610.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="FixedStack.cpp" />
     <ClCompile Include="Goblin.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Orc.cpp" />
@@ -151,6 +157,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
+    <ClInclude Include="BinarySearchTree.h" />
+    <ClInclude Include="BitFlag.h" />
+    <ClInclude Include="Calculator.h" />
+    <ClInclude Include="CircularQueue.h" />
+    <ClInclude Include="Coordinate.h" />
     <ClInclude Include="DArray.h" />
     <ClInclude Include="Day0519.h" />
     <ClInclude Include="Day0515.h" />
@@ -166,9 +177,14 @@
     <ClInclude Include="Day0602.h" />
     <ClInclude Include="Day0604.h" />
     <ClInclude Include="Day0605.h" />
+    <ClInclude Include="Day0609.h" />
+    <ClInclude Include="Day0610.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="FixedStack.h" />
+    <ClInclude Include="FixedStackTemplate.h" />
     <ClInclude Include="Goblin.h" />
     <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="LinkedListTemplate.h" />
     <ClInclude Include="MazeCommon.h" />
     <ClInclude Include="Orc.h" />
     <ClInclude Include="Player.h" />

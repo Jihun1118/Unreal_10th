@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdlib.h>
 
+
 bool IsFloatEqual(float Num1, float Num2)
 {
 	return fabsf(Num1 - Num2) <= 0.001f;

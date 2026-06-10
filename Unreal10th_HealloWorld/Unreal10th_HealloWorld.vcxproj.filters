@@ -99,6 +99,24 @@
     <ClCompile Include="DArray.cpp">
       <Filter>DataStructure</Filter>
     </ClCompile>
+    <ClCompile Include="Day0609.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FixedStack.cpp">
+      <Filter>DataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="CircularQueue.cpp">
+      <Filter>DataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="Day0610.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BinarySearchTree.cpp">
+      <Filter>DataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="Calculator.cpp">
+      <Filter>DataStructure</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day0515.h">
@@ -186,6 +204,36 @@
       <Filter>DataStructure</Filter>
     </ClInclude>
     <ClInclude Include="DArray.h">
+      <Filter>DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="Day0609.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FixedStack.h">
+      <Filter>DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="CircularQueue.h">
+      <Filter>DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="Day0610.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Coordinate.h">
+      <Filter>DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="BitFlag.h">
+      <Filter>DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedListTemplate.h">
+      <Filter>DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="FixedStackTemplate.h">
+      <Filter>DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="BinarySearchTree.h">
+      <Filter>DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="Calculator.h">
       <Filter>DataStructure</Filter>
     </ClInclude>
   </ItemGroup>

@@ -22,6 +22,11 @@
 #include "LinkedList.h"
 #include "DArray.h"
 #include "Day0605.h"
+#include "Day0609.h"
+#include "FixedStack.h"
+#include "Day0610.h"
+#include "LinkedListTemplate.h"
+#include "FixedStackTemplate.h"
 
 using namespace std;
 
@@ -34,6 +39,21 @@ int main()  // 코드의 시작점
 	Seed = 0;		// 테스트용으로 임시로 설정
 	srand(Seed);	// 시드값 초기화
 
+	//Day0609 day0609;
+	//day0609.Day0609_Main();
+
+	Day0605 day0605;
+	day0605.TestListTemplate();
+
+
+//	Day0610 day0610;
+////	day0610.TestTemplateClass();
+//	day0610.TestTree();
+//	day0610.TestSet();
+
+	//day0609.Day0609_Main();
+	//Day0609 day0609;
+	//day0609.Day0609_Main();
 	//Weekend0523_Dungeon();
 	//Day0529();
 
@@ -43,17 +63,17 @@ int main()  // 코드의 시작점
 
 	//Day0605.TestList();
 
-	DArray DA;
-	DA.PushBack(10);
-	DA.Print();
-	DA.PushBack(20);
-	DA.Print();
-	DA.PushBack(30);
-	DA.Print();
-	DA.PushBack(40);
-	DA.Print();
-	DA.PushBack(50);
-	DA.Print();
+	//DArray DA;
+	//DA.PushBack(10);
+	//DA.Print();
+	//DA.PushBack(20);
+	//DA.Print();
+	//DA.PushBack(30);
+	//DA.Print();
+	//DA.PushBack(40);
+	//DA.Print();
+	//DA.PushBack(50);
+	//DA.Print();
 
 	/*DA.Reserve(3);
 	DA.PushBack(10);

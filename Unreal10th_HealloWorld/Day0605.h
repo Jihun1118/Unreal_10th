@@ -47,6 +47,7 @@ public:
 	//			랜덤 액세스가 많을 경우 ( 중간에 확인하는 것), 데이터 개수가 고정일 경우 불리하다.
 
 	void TestList();
+	void TestListTemplate();
 
 };
 

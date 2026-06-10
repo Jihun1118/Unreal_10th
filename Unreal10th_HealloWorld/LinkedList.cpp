@@ -23,7 +23,6 @@ void LinkedList::Add(int InData)
         Tail->Next = NewNode;
         Tail = NewNode;
     }
-
     Size++;
 
     // 해드가 없는 경우. Tail과 Size에 대한 처리 필요
@@ -201,3 +200,6 @@ void LinkedList::PrintList() const
     }
     printf("nullptr\n");
 }
+
+
+
